@@ -1,8 +1,6 @@
 name: CI
 on:
   push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -27,7 +25,7 @@ jobs:
         run: sbt "++ 2.12.x" scripted
       - name: Scripted tests sbt 2
         run: sbt "++ 3.x" scripted
-        if: ${{ matrix.javaversion != "8" && matrix.javaversion != "11" }}
+        if: ${{ matrix.javaversion != 8 && matrix.javaversion != 11 }}
       - name: Test generate documentation
         run: sbt doc
   ci:
